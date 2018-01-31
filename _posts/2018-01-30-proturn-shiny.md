@@ -8,10 +8,7 @@ author: "Chen Meng"
 
 ------
 
-##### NOTE: This tutorial is only for the user interface of shiny app. To understand the parameters you need to specify in this app, you need to read (a link to the other vignette).
-
------------------------------------------------------------------------------------------
------------------------------------------------------------------------------------------
+##### NOTE: This tutorial is only for the user interface of shiny app. To understand the parameters you need to specify in this app, you need to read [this tutorial][linkproturntut]).
 
 ### Uploading data
 ![Uploading data](/figure/proturnShiny/Slide1.JPG)
@@ -51,3 +48,5 @@ author: "Chen Meng"
 
 ### Fitting synthesis curves and comparison of synthesis and degradation results
 ![Fitting synthesis curves and comparison of synthesis and degradation results](/figure/proturnShiny/Slide7.JPG)
+
+[linkproturntut]: https://mengchen18.github.io/2018/01/30/proturn-workflow.html

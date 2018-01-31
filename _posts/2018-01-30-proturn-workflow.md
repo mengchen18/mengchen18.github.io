@@ -281,4 +281,4 @@ document was compiled:
 
 [ref]: http://example.com/ 
 
-[shinyintro]: http://example.com/ 
+[shinyintro]: https://mengchen18.github.io/2018/01/30/proturn-shiny.html
