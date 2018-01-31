@@ -8,9 +8,7 @@ author: "Chen Meng"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-------
-
-##### NOTE: This tutorial is only for the user interface of shiny app. To understand the parameters you need to specify in this app, you need to read [this tutorial][linkproturntut]).
+NOTE: This tutorial is only for the user interface of shiny app. To know how to start the shiny app or to understand the parameters, you need to read [this tutorial][linkproturntut]).
 
 ### Uploading data
 ![Uploading data](/figure/proturnShiny/Slide1.JPG)
