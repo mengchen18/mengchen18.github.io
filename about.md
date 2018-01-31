@@ -1,18 +1,11 @@
 ---
-layout: page
-title: About
-permalink: /about/
+layout: default
+title: About me
+permalink: /about me/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+My name is Chen Meng. I am a computational biologist working in the Chair of Proteomics and Bioanalytics, Technical University of Munich. We are a proteomics group, generate tons of proteomics data and analyze them. My research interest is all about "turning biological data into testable hypothesis", using the combination of mutlivariate analysis, data integration, interactive visualization and data annotation methods. 
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
-
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
+Links to [our group](http://proteomics.wzw.tum.de/index.php?id=2) and [my google scholar](https://scholar.google.com/citations?user=HMFNz3YAAAAJ&hl=en&citsig=AMstHGQykXSy8YXCtSCrj64cztGSF9YjHA)
 
 
-[jekyll-organization]: https://github.com/jekyll

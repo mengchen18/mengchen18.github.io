@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Shiny tutorial - Fitting protein degradation or synthesis curve using 'proturn'"
+title: 'Fitting protein degradation or synthesis curve using R package "proturn" - The Shiny user interface'
 author: "Chen Meng"
 ---
 
 
 
-NOTE: This tutorial is only for the user interface of shiny app. To know how to start the shiny app or to understand the parameters, you need to read [this tutorial][linkproturntut]).
+NOTE: This tutorial is only for the shiny user interface of R pacakge [proturn](https://github.com/mengchen18/proturn). To know how to start the shiny app or to understand the parameters, please refere to [this tutorial][linkproturntut]).
 
 ### Uploading data
 ![Uploading data](/figure/proturnShiny/Slide1.JPG)

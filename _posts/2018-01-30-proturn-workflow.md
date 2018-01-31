@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Fitting protein degradation or synthesis curve using 'proturn'"
+title: 'Fitting protein degradation or synthesis curve using R package "proturn"'
 author: "Chen Meng"
 output:
   md_document:
@@ -10,13 +10,13 @@ output:
 ---
 
 
-# Abstract
+## Abstract
 
 Pulse-SILAC has been used to analyze protein turnover in a system-wise. This package 
 provides convenient functions to fit protein degradation and synthesis curves
 using pulsed SILAC data. In addition, a graphical user interface is provided.
 
-# Introduction
+## Introduction
 
 Pulsed (or time resolved) SILAC experiments have been successfully applied to
 proteome-wise study of protein turnover rate [1].  
@@ -40,13 +40,22 @@ $$ f(t) = (B-A) \cdot e^{-(k_s + \frac{ln2}{t_{cc}}) \cdot t} + A $$
 
 where $$k_d$$ and $$k_s$$ are the degradation and synthesis constant respectively, which are going to be estimated. The $$t$$ is the time points given in hours and $$t_{cc}$$ is the cell doubling time. With the assumption of steady state (no proliferation), this parameter is set to infinite (`Inf`). In addition, two other parameters are included: $$A$$ is the (normalized) amplitude, $$B$$ accounting for the offset seen in data, which could be attributed by the recycling of amino acids in protein synthesis.
 
-# Data preparation
+## Data preparation
 The data is assumed to be properly normalized and transform to the ratios, that is, at a specific time point, the proportion of newly synthesized protein (for synthesis curve fitting) or remained protein (for degradation curve fitting). 
 The package is primarily designed for the pSILAC data, but it can also be used to any data transformed to this format. 
 
-# Workflow
-## Loading data
-First we need to load the package and example data:
+## Workflow
+### Installation
+
+You can install the pacakge by:
+
+{% highlight r %}
+library(devtools)
+install_github("mengchen18/proturn")
+{% endhighlight %}
+
+### Loading data
+Then, load the library and read example data:
 
 {% highlight r %}
 library("proturn")
@@ -88,7 +97,7 @@ colnames(dat)
 {% endhighlight %}
 `dat` is a *data.frame* has 100 rows, each represent a peptides. Columns 1 to 10 are annotation information for peptides, including sequence, gene name, intensity measured in mass spectrometry, etc. The subsequent columns are the ratio of remaining peptide from degradation and the ratio of newly synthesis peptides, indicated by "deg" and "syn" in the end of column headers. The degradation and synthesis ratios are measured at the same time points from 0 hours to 64 hours. 
 
-## Fitting a single degradation/synthesis curve
+### Fitting a single degradation/synthesis curve
 The package provides a easy ways to fit a single degradation or synthesis curve and to visualized the fitted curve. The following codes show how to fit a synthesis curve for the peptide in the first row of `dat`:
 
 {% highlight r %}
@@ -118,7 +127,7 @@ plotCurve.one(x = fit, t = timepoints, tcc = Inf)
 
 The horizontal error bar indicates the 95% confidence internal of peptide's half-life. 
 
-## Fitting a protein degradation/synthesis curve using multiple peptides
+### Fitting a protein degradation/synthesis curve using multiple peptides
 In a pSILAC experiment, we always identify multiple peptides from the same protein, would they have the same degradation/synthesis rate? If so, we should be able to have a narrower confidence interval of $k_d$/$k_s$ if we combine them to fit a single model. In this case, we can use a matrix, where each row represents a single peptide from the protein, as input to fit a model. In our exemplary data, there are some peptides from the same proteins, we will use one of them as an example to know how to fit a single model using multiple peptides. 
 
 
@@ -150,11 +159,11 @@ plotCurve.comb(x = fit2, t= timepoints)
 
 ![plot of chunk matrixInput]({{ site.url }}/figure/proturnWorkflow/proturn-matrixInput-1.png)
 
-In this plot, you can see three fitted lines, the black line is the model fitted using both peptides. Where are the other two lines from? Please note that there is an argument `fitIndividual = TRUE`, this means in addition to fit one model using all the data points, also fit models using each individual row in the matrix. So in this plot, the green and red lines are the models fitted from each individual peptides. For this protein, the two individual peptides have fairly similar turnover rate, so probably it is not a bad idea to fit a single model using both. But in [this paper][ref], we clearly see that peptides from the same protein do not always have similar turnover rate, why? Right, isoforms. Some times peptides from a specific isoform may have different cycling rate, in these cases, you may find two clusters of curves. That's why we also want to fit curves on peptide level. 
+In this plot, you can see three fitted lines, the black line is the model fitted using both peptides. Where are the other two lines from? Please note that there is an argument `fitIndividual = TRUE`, this means in addition to fit one model using all the data points, also fit models using each individual row in the matrix. So in this plot, the green and red lines are the models fitted from each individual peptides. For this protein, the two individual peptides have fairly similar turnover rate, so probably it is not a bad idea to fit a single model using both. But in [this paper][ref] (currently under review, link would be added when the paper is online), we clearly see that peptides from the same protein do not always have similar turnover rate, why? Right, isoforms. Some times peptides from a specific isoform may have different cycling rate, in these cases, you may find two clusters of curves. That's why we also want to fit curves on peptide level. 
 
 Also note that the only requirement of fitting combined curve is `x` is a matrix, which could be multiple peptides from the same protein (as this example). However, it could also be multiple proteins from the same complex, or the same peptide but multiple identification by mass spectrometry. The function is general enough to fit combined models on all level.
 
-## Fitting curves for all peptides/proteins in an experiment
+### Fitting curves for all peptides/proteins in an experiment
 Mass spectrometry base pSILAC measures proteins turnover from a system-wise, according, this package provides a convenient function to fit curves for all peptide/proteins in an experiment. Here, we will fit the degradation curves for all peptides (and proteins) in the example data:
 
 
@@ -220,7 +229,7 @@ head(params)
 {% endhighlight %}
 where the columns with a header starting with "comb" are the model parameters for the combined fittings, the rest are for individual fittings.
 
-# Shiny application
+## Shiny application
 The package also include a shiny application, to start the app:
 
 {% highlight r %}
@@ -237,7 +246,7 @@ argument gives a control on where you want to save all the figures.
 An instruction about how to use the shiny app could be find [here][shinyintro].
 
 
-# Session info
+## Session info
 Here is the output of `sessionInfo()` on the system on which this
 document was compiled:
 
@@ -276,7 +285,7 @@ document was compiled:
 ## [22] methods_3.4.1
 {% endhighlight %}
 
-# References
+## References
 [1] Boisvert, François-Michel et.a l. 2012. “A Quantitative Spatial Proteomics Analysis of Proteome Turnover in Human Cells.” Molecular & Cellular Proteomics: MCP 11 (3): M111.011429.
 
 [ref]: http://example.com/ 
