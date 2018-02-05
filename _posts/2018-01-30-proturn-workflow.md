@@ -159,7 +159,7 @@ plotCurve.comb(x = fit2, t= timepoints)
 
 ![plot of chunk matrixInput]({{ site.url }}/figure/proturnWorkflow/proturn-matrixInput-1.png)
 
-In this plot, you can see three fitted lines, the black line is the model fitted using both peptides. Where are the other two lines from? Please note that there is an argument `fitIndividual = TRUE`, this means in addition to fit one model using all the data points, also fit models using each individual row in the matrix. So in this plot, the green and red lines are the models fitted from each individual peptides. For this protein, the two individual peptides have fairly similar turnover rate, so probably it is not a bad idea to fit a single model using both. But in [this paper][ref][2], we clearly see that peptides from the same protein do not always have similar turnover rate, why? Right, isoforms. Some times peptides from a specific isoform may have different cycling rate, in these cases, you may find two clusters of curves. That's why we also want to fit curves on peptide level. 
+In this plot, you can see three fitted lines, the black line is the model fitted using both peptides. Where are the other two lines from? Please note that there is an argument `fitIndividual = TRUE`, this means in addition to fit one model using all the data points, also fit models using each individual row in the matrix. So in this plot, the green and red lines are the models fitted from each individual peptides. For this protein, the two individual peptides have fairly similar turnover rate, so probably it is not a bad idea to fit a single model using both. But in [this paper][ref] [2], we clearly see that peptides from the same protein do not always have similar turnover rate, why? Right, isoforms. Some times peptides from a specific isoform may have different cycling rate, in these cases, you may find two clusters of curves. That's why we also want to fit curves on peptide level. 
 
 Also note that the only requirement of fitting combined curve is `x` is a matrix, which could be multiple peptides from the same protein (as this example). However, it could also be multiple proteins from the same complex, or the same peptide but multiple identification by mass spectrometry. The function is general enough to fit combined models on all level.
 
@@ -272,7 +272,7 @@ document was compiled:
 ## [1] parallel  stats     graphics  grDevices utils     datasets  base     
 ## 
 ## other attached packages:
-## [1] proturn_0.99.0 shinyBS_0.61  
+## [1] proturn_0.99.1 shinyBS_0.61  
 ## 
 ## loaded via a namespace (and not attached):
 ##  [1] Rcpp_0.12.13       matrixStats_0.52.2 digest_0.6.14     
@@ -287,6 +287,8 @@ document was compiled:
 
 ## References
 [1] François-Michel Boisvert, Yasmeen Ahmad, Marek Gierliński, Fabien Charrière, Douglas Lamont, Michelle Scott§, Geoff Barton and Angus I. Lamond. 2012. "A Quantitative Spatial Proteomics Analysis of Proteome Turnover in Human Cells." Molecular & Cellular Proteomics: MCP 11 (3): M111.011429.
+
+
 [2] Jana Zecha, Chen Meng, Daniel Paul Zolg, Patroklos Samaras, Mathias Wilhelm and Bernhard Kuster. 2018. "Peptide level turnover measurements enable the study of proteoform dynamics." Molecular & Cellular Proteomics: MCP
 
 [ref]: http://m.mcponline.org/content/early/2018/02/02/mcp.RA118.000583
