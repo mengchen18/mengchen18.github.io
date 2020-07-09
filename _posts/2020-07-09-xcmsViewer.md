@@ -1,3 +1,14 @@
+---
+layout: post
+title: 'Introduction to xcmsViewer'
+author: "Chen Meng"
+output:
+  md_document:
+    toc: true
+    toc_depth: 2
+    number_sections: true
+---
+
 # xcmsViewer
 
 The xcmsViewer is a collection of R packages used for downstream annotation and visualization of 
